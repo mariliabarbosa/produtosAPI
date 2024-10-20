@@ -1,10 +1,22 @@
 package com.marilia.produtosapi.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Produto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column
     private String id;
+
+    @Column
     private String nome;
+
+    @Column
     private String descricao;
+
+    @Column
     private Double preco;
 
     public String getId() {
