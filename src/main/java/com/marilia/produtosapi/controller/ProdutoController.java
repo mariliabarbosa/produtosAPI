@@ -4,7 +4,6 @@ import com.marilia.produtosapi.model.Produto;
 import com.marilia.produtosapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -23,9 +22,13 @@ public class ProdutoController {
         return produto;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public Produto obterPorId(@PathVariable("id") UUID id){
         return produtoRepository.findById(id).orElse(null);
     }
 
+    @DeleteMapping("{id}")
+    public void deletar(@PathVariable("id") UUID id){
+        produtoRepository.deleteById(id);
+    }
 }
