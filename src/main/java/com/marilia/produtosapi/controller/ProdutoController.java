@@ -12,7 +12,7 @@ public class ProdutoController {
 
     @PostMapping
     public Produto salvar(@RequestBody Produto produto){
-        System.out.println("Produto recebido " + produto);
+        System.out.println("Produto recebido: " + produto);
         return produto;
     }
 
